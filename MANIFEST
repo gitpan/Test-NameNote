@@ -1,0 +1,11 @@
+Build.PL
+Changes
+lib/Test/NameNote.pm
+MANIFEST			This list of files
+MANIFEST.SKIP
+README
+t/01basic.t
+t/10synopsis.t
+t/20interop-test-group.t
+Makefile.PL
+META.yml
