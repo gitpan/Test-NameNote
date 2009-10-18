@@ -1,6 +1,6 @@
 ---
 name: Test-NameNote
-version: 0.01
+version: 0.02
 author:
   - 'Nick Cleaton <nick@cleaton.net>'
 abstract: add notes to test names
@@ -22,7 +22,7 @@ configure_requires:
 provides:
   Test::NameNote:
     file: lib/Test/NameNote.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.35
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html

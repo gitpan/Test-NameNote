@@ -1,7 +1,7 @@
 package Test::NameNote;
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 NAME
 
@@ -82,6 +82,19 @@ sub DESTROY {
 
     @_notes = grep {$_ ne $self->{NoteRef}} @_notes;
 }
+
+=head1 AUTHOR
+
+Nick Cleaton, C<< <nick at cleaton dot net> >>
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2009 Nick Cleaton, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
+
+=cut
 
 1;
 
