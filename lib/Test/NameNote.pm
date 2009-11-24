@@ -1,7 +1,7 @@
 package Test::NameNote;
 use strict;
 use warnings;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 NAME
 
@@ -9,9 +9,7 @@ Test::NameNote - add notes to test names
 
 =head1 SYNOPSIS
 
-Adds notes to test names in L<Test::Builder>-based test scripts.  Each
-Test::NameNote object encapsulates a singe note, which will be added to the
-names of all tests run while the object is in scope.
+Adds notes to test names in L<Test::Builder>-based test scripts.
 
   use Test::More tests => 10;
   use Test::NameNote;
@@ -65,17 +63,34 @@ sub _wrap {
     };
 }
 
+=head1 CONSTRUCTORS
+
+=over
+
+=item new ( NOTE )
+
+Builds a new C<Test::NameNote> object for the specifed NOTE text.  The note
+will be added to the names of all L<Test::Builder> tests run while the
+object is in scope.
+
+=cut
+
 sub new {
     my ($pkg, $note) = @_;
 
-    if (!$_wrapped_test_group_ok and exists &Test::Group::_Runner::ok) {
-        _wrap('Test::Group::_Runner::ok');
+    if (!$_wrapped_test_group_ok and
+                            exists &Test::Builder::_HijackedByTestGroup::ok) {
+        _wrap('Test::Builder::_HijackedByTestGroup::ok');
         $_wrapped_test_group_ok = 1;
     }
 
     push @_notes, \$note;
     return bless { NoteRef => \$note }, ref($pkg)||$pkg;
 }
+
+=back
+
+=cut
 
 sub DESTROY {
     my $self = shift;
@@ -97,4 +112,3 @@ the same terms as Perl itself.
 =cut
 
 1;
-

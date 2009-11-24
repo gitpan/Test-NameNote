@@ -1,63 +1,20 @@
-Adds notes to test names in Test::Builder-based test scripts. Each
-Test::NameNote object encapsulates a singe note, which will be added to the
-names of all tests run while the object is in scope.
+This is the Test::NameNote perl module.  For details run the command:
 
-  use Test::More tests => 10;
-  use Test::NameNote;
+    perldoc lib/Test/NameNote.pm
 
-  ok foo(), "foo true";
-  foreach my $foo (0, 1) {
-      my $n1 = Test::NameNote->new("foo=$foo");
-      foreach my $bar (0, 1) {
-          my $n2 = Test::NameNote->new("bar=$bar");
-          is thing($foo, $bar), "thing", "thing returns thing";
-          is thang($foo, $bar), "thang", "thang returns thang";
-      }
-  }
-  ok bar(), "bar true";
+from within this directory, or see:
 
-  # prints:
-  1..10
-  ok 1 - foo true
-  ok 2 - thing returns thing (foo=0,bar=0)
-  ok 3 - thang returns thang (foo=0,bar=0)
-  ok 4 - thing returns thing (foo=0,bar=1)
-  ok 5 - thang returns thang (foo=0,bar=1)
-  ok 6 - thing returns thing (foo=1,bar=0)
-  ok 7 - thang returns thang (foo=1,bar=0)
-  ok 8 - thing returns thing (foo=1,bar=1)
-  ok 9 - thang returns thang (foo=1,bar=1)
-  ok 10 - bar true
+    http://search.cpan.org/dist/Test::NameNote
+
 
 INSTALLATION
 
 To install this module, run the following commands:
 
-	perl Build.PL
-	./Build
-	./Build test
-	./Build install
-
-SUPPORT AND DOCUMENTATION
-
-After installing, you can find documentation for this module with the
-perldoc command.
-
-    perldoc Test::NameNote
-
-You can also look for information at:
-
-    RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test::NameNote
-
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Test::NameNote
-
-    CPAN Ratings
-        http://cpanratings.perl.org/d/Test::NameNote
-
-    Search CPAN
-        http://search.cpan.org/dist/Test::NameNote
+    perl Build.PL
+    ./Build
+    ./Build test
+    ./Build install
 
 
 COPYRIGHT AND LICENCE
@@ -66,4 +23,3 @@ Copyright 2009 Nick Cleaton, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
-

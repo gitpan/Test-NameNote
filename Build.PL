@@ -4,10 +4,10 @@ use warnings;
 use Module::Build;
 
 my $builder = Module::Build->new(
-    module_name        => 'Test::NameNote',
-    dist_author        => 'Nick Cleaton <nick@cleaton.net>',
-    dist_version_from  => 'lib/Test/NameNote.pm',
-    license            => 'perl',
+    module_name => 'Test::NameNote',
+    dist_author => 'Nick Cleaton <nick@cleaton.net>',
+    all_from    => 'lib/Test/NameNote.pm',
+    license     => 'perl',
     requires => {
         'perl'          => 5.006001,
         'Sub::Prepend'  => 0,
@@ -20,8 +20,6 @@ my $builder = Module::Build->new(
         'Test::More'            => 0,
         'Test::Script::Run'     => 0,
     },
-    add_to_cleanup      => [ 'Test::NameNote-*' ],
     create_makefile_pl => 'traditional',
 );
-
 $builder->create_build_script();

@@ -1,7 +1,11 @@
 Revision history for Test::NameNote
 
+0.03    2009-11-23
+        Avoid a segfault under Perl 5.8.4
+
 0.02    2009-10-18
         Added some missing pod.
 
 0.01    2009-10-17
         Initial release.
+
