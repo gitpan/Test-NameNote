@@ -1,7 +1,7 @@
 package Test::NameNote;
 use strict;
 use warnings;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 NAME
 
@@ -53,12 +53,12 @@ sub _wrap {
 
     prepend $target => sub {
         if (@_notes) {
+            # Append any current notes to the test name in $_[2].
             my $note = join ',', map {$$_} @_notes;
             if (defined $_[2] and length $_[2]) {
-                $_[2] .= " ($note)";
-            } else {
-                $_[2] = $note;
+                $note = "$_[2] ($note)";
             }
+            @_ = (@_[0,1], $note, @_[3,-1]);
         } 
     };
 }
